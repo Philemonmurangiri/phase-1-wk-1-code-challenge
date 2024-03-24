@@ -18,23 +18,29 @@ function getUserInput(question){
         resolve(parseFloat(answer));
     });
  });
-}
+
 //defining a function 
 function calculateDemeritPoints(speed) {
     const speedLimit = 70;
     const kmPerDemeritPoint = 5;
-    const demeritPointsThreshold = 12;
-
+    const demeritUpperLimit = 12;
+// display to the driver 
     if (speed <= speedLimit) {
         console.log("Ok");
-        return ok;
+        return "ok";
     }
 //calculating demerit points
     const demeritPoints = Math.floor((speed - speedLimit) / kmPerDemeritPoint);
+// display to the driver
+    if (demeritPoints < 12 )
     console.log("Points:", demeritPoints);
 // display to the driver
-    if (demeritPoints > demeritPointsThreshold) {
+    else if (demeritPoints > demeritUpperLimit) {
         console.log("License suspended");
     }
 }
+
+rl.close}
 run();
+
+
